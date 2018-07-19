@@ -1,28 +1,36 @@
 package com.qa.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Account {
+public class Trainee {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
 	private String firstName;
 	private String secondName;
-	private String accountNumber;
+	@JoinColumn(name = "trainee_id")
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Subject> subject;
 
-	public Account() {
+	public Trainee() {
 
 	}
 
-	public Account(String firstName, String secondName, String accountNumber) {
+	public Trainee(String firstName, String secondName, String[] subjectRatings) {
 		this.firstName = firstName;
 		this.secondName = secondName;
-		this.accountNumber = accountNumber;
+	
 	}
 
 	public String getFirstName() {
@@ -41,13 +49,7 @@ public class Account {
 		this.secondName = secondName;
 	}
 
-	public String getAccountNumber() {
-		return accountNumber;
-	}
 
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
 
 	public Long getId() {
 		return id;
