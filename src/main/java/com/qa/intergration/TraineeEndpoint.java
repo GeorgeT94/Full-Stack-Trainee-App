@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 
 import com.qa.service.business.TraineeService;
 
-@Path("/trainee")
+@Path("/trainees")
 public class TraineeEndpoint {
 
 	@Inject
