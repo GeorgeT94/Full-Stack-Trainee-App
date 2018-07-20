@@ -2,6 +2,8 @@
 <div ng-controller="traineesController as traineesCtrl">
     <h1>name: {{traineesCtrl.selectedTrainee.firstName}}</h1>
     <h2>subjects</h2>
-    <h3 ng-repeat="subject in traineeCtrl.selectedTrainee.subjects">{{subject}}</h3>
+    <div ng-repeat="subject in traineesCtrl.selectedTrainee.subject">
+        <h2>{{subject.subjectName}}</h2><h3>{{subject.rating}}</h3>
+    </div>
     <a ui-sref="trainee">Trainees</a>
 </div>
