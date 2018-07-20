@@ -18,7 +18,7 @@
         };
 
         this.deleteTrainee = function (traineeToDelete) {
-            return dal.http.DELETE("/rest/trainees/json/", traineeToDelete);
+            return dal.http.DELETE("rest/trainees/json/", traineeToDelete);
         };
     }
     
