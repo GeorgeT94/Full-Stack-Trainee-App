@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Trainee {
@@ -17,7 +18,9 @@ public class Trainee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
+	@Pattern(regexp="^[a-zA-Z]{1,20}$", message="1-20 CHARACTERS NO NUMBERS OR SYMBOLS")
 	private String firstName;
+	@Pattern(regexp="^[a-zA-Z]{1,20}$", message="1-20 CHARACTERS NO NUMBERS OR SYMBOLS")
 	private String secondName;
 	@JoinColumn(name = "trainee_id")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

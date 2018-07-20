@@ -24,7 +24,7 @@
                 vm.selectedTrainee = data;
                 dataService.setData(data);
                 $state.go("traineeinfo");
-        }
+        };
 
         vm.deleteTrainee = function (trainee){
             console.log("deleting trainee : " + trainee);

@@ -7,7 +7,6 @@
         vm.selectedTrainee = dataService.getData();
 
 
-
         vm.deleteTrainee = function (trainee){
             console.log("deleting trainee : " + trainee);
             TraineeService.deleteTrainee(trainee).then(function (response) {
