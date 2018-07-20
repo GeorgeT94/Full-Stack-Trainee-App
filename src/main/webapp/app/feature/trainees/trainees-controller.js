@@ -26,6 +26,18 @@
                 $state.go("traineeinfo");
         }
 
+        vm.deleteTrainee = function (trainee){
+            console.log("deleting trainee : " + trainee);
+            TraineeService.deleteTrainee(trainee).then(function (response) {
+                vm.response = response;
+                $log.log("In the account controller the value of the result promise is ");
+                $log.log(JSON.stringify(vm.response));
+            }, function (error) {
+                vm.error = true;
+                vm.errorMessage = error;
+            });
+        }
+
 
     };
 

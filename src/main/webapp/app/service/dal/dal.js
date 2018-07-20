@@ -59,6 +59,7 @@
 
                 DELETE: function (apiPath, itemToDelete) {
                     var deferred = $q.defer();
+                    console.log("calling dal.delete to path " + apiPath + itemToDelete.id);
                     $http.delete(apiPath + itemToDelete.id).then(function () {
                         deferred.resolve();
                     }, function (e) {
